@@ -26,6 +26,20 @@ if (__name__ == "__main__"):
     
     print(value)
     
+def getRate(value):
+   rate = 0;
+   if value>0 and  value <= 100:
+      rate = 4.22 * value 
+   if value > 100 and value <= 200:
+      rate = 5.02 * value 
+   if value > 200 and value <= 300:
+      rate = 5.87 * value
+   else :
+      rate = value * 7
+
+   return rate + 40
+   
+   
 
 def getPredictedValue(year,month):
     value=0
@@ -34,4 +48,4 @@ def getPredictedValue(year,month):
     x = range(days) 
     for day in x:
       value += model.predict([[2012,3,day]])[0]
-    return (value/100) * 30
+    return getRate((value/100) * days)
