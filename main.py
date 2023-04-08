@@ -24,7 +24,7 @@ def home():
 def disp(year, month):
     if(len(str(year)) < 5 and month <= 12 and month >= 1):
      expectedConsumption = getPredictedValue(year, month)
-     return jsonify({'year': year, 'month': month, 'watt': expectedConsumption})
+     return jsonify({'year': year, 'month': month, 'expectedCost': expectedConsumption})
     else :
         return jsonify({'error': 'Invalid Year and month'})
 
