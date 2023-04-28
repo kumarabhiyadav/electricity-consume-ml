@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
 from model import getPredictedValue
+from flask_cors import CORS
 # creating a Flask app
 app = Flask(__name__)
+CORS(app)
 
 # on the terminal type: curl http://127.0.0.1:5000/
 # returns hello world when we use GET.
@@ -27,6 +29,7 @@ def disp(year, month):
      return jsonify({'year': year, 'month': month, 'expectedCost': expectedConsumption})
     else :
         return jsonify({'error': 'Invalid Year and month'})
+
 
 
 # driver function
